@@ -2,6 +2,7 @@ package com.example.simpletodoroomapp.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.simpletodoroomapp.model.User
 
 
 @Dao
@@ -16,11 +17,11 @@ interface UserDao {
     @Delete
     suspend fun  deleteUser(user: User)
 
-    @Query(value = "delete from user_table")
+    @Query("DELETE FROM user_table")
     suspend fun  deleteAllUsers()
 
 
-    @Query(value ="select * from user_table" )
+    @Query("SELECT * FROM user_table" )
     fun getAllUsers():LiveData<List<User>>
 
 

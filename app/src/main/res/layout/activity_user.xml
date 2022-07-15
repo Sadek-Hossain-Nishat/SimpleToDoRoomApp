@@ -1,82 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.UserActivity"
-    android:layout_margin="15dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/id_title_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/purple_500"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        tools:text="User Details" />
 
-    <EditText
-        android:id="@+id/id_edit_text_name"
+    <data>
+        <variable
+            name="userviewmodel"
+            type="com.example.simpletodoroomapp.viewmodel.UserViewModel" />
+    </data>
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/id_title_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background_edittext"
-        android:hint="@string/enter_name"
-        android:lines="1"
-        android:minHeight="48dp"
-        android:paddingStart="10dp" />
+        android:layout_height="match_parent"
+        tools:context=".view.UserActivity"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:id="@+id/id_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/purple_500"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="@={userviewmodel.titleText}"
+            tools:text="User Details" />
+
+        <EditText
+            android:id="@+id/id_edit_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_title_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_edittext"
+            android:hint="@string/enter_name"
+            android:lines="1"
+            android:minHeight="48dp"
+            android:text="@={userviewmodel.inputName}"
+            android:paddingStart="15dp" />
 
 
-    <EditText
-        android:id="@+id/id_edit_text_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/id_edit_text_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/background_edittext"
-        android:hint="@string/email"
-        android:lines="1"
-        android:minHeight="48dp"
-        android:paddingStart="10dp" />
+        <EditText
+            android:id="@+id/id_edit_text_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_edit_text_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/background_edittext"
+            android:hint="@string/email"
+            android:lines="1"
+            android:minHeight="48dp"
+            android:text="@={userviewmodel.inputEmail}"
+            android:paddingStart="15dp" />
+
+        <EditText
+
+            android:id="@+id/id_edit_text_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_edit_text_email"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="15dp"
+            android:layout_marginTop="5dp"
+            android:lines="5"
+            android:background="@drawable/background_edittext"
+            android:text="@={userviewmodel.inputComment}"
+            android:hint="@string/write_comment" />
+
+        <Button
+            android:id="@+id/id_saveorupdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_edit_text_comment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="@={userviewmodel.editorsaveorupdateButtonText}"
+            tools:text="Update"
+            android:onClick="@{()->userviewmodel.editorsaveorupdateUser()}"/>
+
+    </RelativeLayout>
 
 
 
-    <EditText
-        android:id="@+id/id_edit_text_comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/id_edit_text_email"
-        android:layout_centerHorizontal="true"
-        android:paddingStart="5dp"
-        android:layout_marginTop="5dp"
-        android:lines="5"
-        android:background="@drawable/background_edittext"
-        android:hint="@string/write_comment" />
-
-
-
-    <Button
-        android:id="@+id/id_saveorupdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/id_edit_text_comment"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        tools:text="Update"/>
-
-
-
-
-
-
-
-
-
-</RelativeLayout>
+</layout>

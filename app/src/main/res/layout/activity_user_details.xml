@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="userviewmodel"
+            type="com.example.simpletodoroomapp.viewmodel.UserViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.UserDetailsActivity"
+        android:layout_margin="10dp"
+        >
+
+
+        <TextView
+            android:id="@+id/titletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="@={userviewmodel.titleText}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Details"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_700"/>
+
+        <TextView
+            android:id="@+id/nametext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@={userviewmodel.inputName}"
+            app:layout_constraintEnd_toEndOf="@+id/titletext"
+            app:layout_constraintStart_toStartOf="@+id/titletext"
+            app:layout_constraintTop_toBottomOf="@+id/titletext"
+            tools:text="Name:Sadek"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_500"/>
+
+        <TextView
+            android:id="@+id/emailtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@={userviewmodel.inputEmail}"
+            app:layout_constraintEnd_toEndOf="@+id/nametext"
+            app:layout_constraintStart_toStartOf="@+id/nametext"
+            app:layout_constraintTop_toBottomOf="@+id/nametext"
+            tools:text="Email:sadek@gmail.com"
+            android:textSize="17sp"
+            android:textColor="@color/purple_500"/>
+
+        <TextView
+            android:id="@+id/commenttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@={userviewmodel.inputComment}"
+            app:layout_constraintEnd_toEndOf="@+id/emailtext"
+            app:layout_constraintStart_toStartOf="@+id/emailtext"
+            app:layout_constraintTop_toBottomOf="@+id/emailtext"
+            tools:text="Comment:lab lab hi nach hi guys"
+            android:textSize="17sp"
+            android:textColor="@color/teal_700"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@={userviewmodel.editorsaveorupdateButtonText}"
+            app:layout_constraintEnd_toEndOf="@+id/commenttext"
+            app:layout_constraintStart_toStartOf="@+id/commenttext"
+            app:layout_constraintTop_toBottomOf="@+id/commenttext"
+            tools:text="Edit"
+            android:onClick="@{()->userviewmodel.doEditable()}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>
